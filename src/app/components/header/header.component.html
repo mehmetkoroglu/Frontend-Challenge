@@ -1,0 +1,114 @@
+<header>
+    <div class="container-fluid">
+        <div class="container top">
+            <div class="row">
+                <div class="col-12 col-lg-6" [routerLink]="'/'">
+                    <h2>Mehmet KÖROĞLU</h2>
+                </div>
+                <div class="col-12 col-lg-6 ms-lg-auto w-auto d-flex">
+                    <div class="social d-none d-lg-block">
+                        <i class="fa fa-facebook p-3" aria-hidden="true"></i>
+                        <i class="fa fa-twitter p-3" aria-hidden="true"></i>
+                        <i class="fa fa-instagram p-3" aria-hidden="true"></i>
+                    </div>
+                    <div class="search">
+                        <input type="search" name="q" [(ngModel)]="query" placeholder="Search...">
+                        <button type="submit" class="ms-3" [routerLink]="'/search/'+query">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="site-navbar py-2 d-none d-lg-block">
+            <div class="container">
+                <nav class="d-flex">
+                    <div class="px-4" [ngClass]="{'activeLink': activePage == '/'}" [routerLink]="'/'">
+                        HOME
+                    </div>
+                    <div class="px-4" [ngClass]="{'activeLink': activePage == '/category'}" [routerLink]="'/category'">
+                        CATEGORY
+                    </div>
+                    <div class="px-4" [ngClass]="{'activeLink': activePage == '/business'}"
+                        [routerLink]="'/category/business'">
+                        BUSINESS
+                    </div>
+                    <div class="px-4" [ngClass]="{'activeLink': activePage == '/entertainment'}"
+                        [routerLink]="'/category/entertainment'">
+                        ENTERTAINMENT
+                    </div>
+                    <div class="px-4" [ngClass]="{'activeLink': activePage == '/general'}"
+                        [routerLink]="'/category/general'">
+                        GENERAL
+                    </div>
+                    <div class="px-4" [ngClass]="{'activeLink': activePage == '/health'}"
+                        [routerLink]="'/category/health'">
+                        HEALTH
+                    </div>
+                    <div class="px-4" [ngClass]="{'activeLink': activePage == '/science'}"
+                        [routerLink]="'/category/science'">
+                        SCIENCE
+                    </div>
+                    <div class="px-4" [ngClass]="{'activeLink': activePage == '/sports'}"
+                        [routerLink]="'/category/sports'">
+                        SPORTS
+                    </div>
+                    <div class="px-4" [ngClass]="{'activeLink': activePage == '/technology'}"
+                        [routerLink]="'/category/technology'">
+                        TECHNOLOGY
+                    </div>
+                    <div class="px-4" [ngClass]="{'activeLink': activePage == '/about'}" [routerLink]="'/about'">
+                        ABOUT
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar fixed-top d-lg-none d-block">
+        <div class="container-fluid">
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end p-4" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <div [ngClass]="{'activeLink': activePage == '/'}" [routerLink]="'/'">
+                        Home
+                    </div>
+                    <div [ngClass]="{'activeLink': activePage == '/category'}" [routerLink]="'/category'">
+                        Category
+                    </div>
+                    <div [ngClass]="{'activeLink': activePage == '/business'}" [routerLink]="'/category/business'">
+                        Business
+                    </div>
+                    <div [ngClass]="{'activeLink': activePage == '/entertainment'}"
+                        [routerLink]="'/category/entertainment'">
+                        Entertainment
+                    </div>
+                    <div [ngClass]="{'activeLink': activePage == '/general'}" [routerLink]="'/category/general'">
+                        General
+                    </div>
+                    <div [ngClass]="{'activeLink': activePage == '/health'}" [routerLink]="'/category/health'">
+                        Health
+                    </div>
+                    <div [ngClass]="{'activeLink': activePage == '/science'}" [routerLink]="'/category/science'">
+                        Science
+                    </div>
+                    <div [ngClass]="{'activeLink': activePage == '/sports'}" [routerLink]="'/category/sports'">
+                        Sports
+                    </div>
+                    <div [ngClass]="{'activeLink': activePage == '/technology'}" [routerLink]="'/category/technology'">
+                        Technology
+                    </div>
+                    <div [ngClass]="{'activeLink': activePage == '/about'}" [routerLink]="'/about'">
+                        About
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>

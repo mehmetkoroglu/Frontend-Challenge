@@ -1,0 +1,77 @@
+<div class="slider">
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            @for (item of headlinesForSlider; track $index) {
+            <div class="carousel-item" [ngClass]="{'active': $index == 0}">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="bg-headline" [ngStyle]="{'background-image': 'url('+item.urlToImage+')'}"></div>
+                    </div>
+                    <div class="col-6 slider-data bg-body-tertiary p-5">
+                        <h6>EDITOR'S PICK</h6>
+                        <h3> <a [href]="item.url">{{item.title}}</a> </h3>
+                        <p>{{item.description}}</p>
+                        <span> {{item.source.id || "Unknown"}} in {{item.source.name}} </span>
+                        <br>
+                        <span> {{dateFixer(item.publishedAt)}} </span>
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+        <button class="carousel-control-prev btn btn-dark" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon btn btn-dark" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next btn btn-dark" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon btn btn-dark" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+
+<h4><u><b>Recent News</b></u></h4>
+
+<div class="headlines">
+    @for (item of headlinesForMainPage; track $index) {
+    <div class="row mt-3 bg-body-tertiary">
+        <div class="col-8 p-5">
+            <p><b><a [href]="item.url">{{item.title}}</a></b></p>
+            <p> {{item.description}} </p>
+            <span> {{item.source.id || "Unknown"}} in {{item.source.name}} </span>
+            <br>
+            <span> {{dateFixer(item.publishedAt)}} </span>
+        </div>
+        <div class="col-4 p-3">
+            <div class="bg-headline h-100" [ngStyle]="{'background-image': 'url('+item.urlToImage+')'}"></div>
+        </div>
+    </div>
+    }
+
+    <nav class="my-3" aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            @for (item of createRange(page); track $index) {
+            <li class="page-item" style="cursor: pointer;" [ngClass]="{'active': $index+1 == activeNumber}">
+                <a class="page-link" (click)="getHeadlines($index+1)"> {{$index+1}} </a>
+            </li>
+            }
+            <li class="page-item">
+                <select [(ngModel)]="pageSize" class="page-link">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                </select>
+            </li>
+        </ul>
+    </nav>
+</div>

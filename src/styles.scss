@@ -1,0 +1,23 @@
+body {
+    font-family: "Cabin", "Segoe UI", "Roboto", "Helvetica Neue",
+        Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+        "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.activeLink {
+    color: #8bc34a;
+}
+
+.bg-headline {
+    width: 100%;
+    height: 300px;
+    max-height: 500px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+}
