@@ -12,10 +12,10 @@
             @for (item of headlinesForSlider; track $index) {
             <div class="carousel-item" [ngClass]="{'active': $index == 0}">
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-12 col-lg-6">
                         <div class="bg-headline" [ngStyle]="{'background-image': 'url('+item.urlToImage+')'}"></div>
                     </div>
-                    <div class="col-6 slider-data bg-body-tertiary p-5">
+                    <div class="col-12 col-lg-6 slider-data bg-body-tertiary p-5">
                         <h6>EDITOR'S PICK</h6>
                         <h3> <a [href]="item.url">{{item.title}}</a> </h3>
                         <p>{{item.description}}</p>
@@ -45,14 +45,14 @@
 <div class="headlines">
     @for (item of headlinesForMainPage; track $index) {
     <div class="row mt-3 bg-body-tertiary">
-        <div class="col-8 p-5">
+        <div class="col-12 col-lg-8 p-5">
             <p><b><a [href]="item.url">{{item.title}}</a></b></p>
             <p> {{item.description}} </p>
             <span> {{item.source.id || "Unknown"}} in {{item.source.name}} </span>
             <br>
             <span> {{dateFixer(item.publishedAt)}} </span>
         </div>
-        <div class="col-4 p-3">
+        <div class="col-12 col-lg-4 p-3">
             <div class="bg-headline h-100" [ngStyle]="{'background-image': 'url('+item.urlToImage+')'}"></div>
         </div>
     </div>
