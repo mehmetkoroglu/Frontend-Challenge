@@ -10,7 +10,7 @@ export class HeadlineService {
   constructor(private http: HttpClient, @Inject("API_URL") private baseUrl: string) { }
 
   getHeadlines(language: string = "en") {
-    return this.http.get<Headline>(`${this.baseUrl}&top-headlines&language=${language}`);
+    return this.http.get<Headline>(`${this.baseUrl}&language=${language}`);
   }
 
   getHeadlinesByCategory(category: string) {

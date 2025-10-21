@@ -22,9 +22,6 @@ export class FilterPage implements OnInit {
     this.headlineService.getHeadlinesFilterBy(filter, value).subscribe(res => {
       this.filteredHeadlines = res.articles;
     });
-
-    console.log(value);
-    
   }
 
   dateFixer(dateTime: number) {
